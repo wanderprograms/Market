@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>WanderSlapp Market</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<!-- Auth container -->
+<div class="auth-container" id="authContainer">
+  <div id="loginForm" class="form-box">
+    <h2>Login</h2>
+    <input type="email" id="loginEmail" placeholder="Email" required/>
+    <input type="password" id="loginPassword" placeholder="Password" required/>
+    <button onclick="login()">Login</button>
+    <p>Don't have an account? <a href="#" onclick="showRegister()">Register</a></p>
+  </div>
+
+  <div id="registerForm" class="form-box" style="display:none;">
+    <h2>Register</h2>
+    <input type="text" id="regUsername" placeholder="Username" required/>
+    <input type="email" id="regEmail" placeholder="Email" required/>
+    <input type="text" id="regPhone" placeholder="Phone Number" required/>
+    <input type="password" id="regPassword" placeholder="Password" required/>
+    <label>
+      <input type="checkbox" id="terms"/> I agree to Terms and Conditions
+    </label>
+    <button onclick="register()">Register</button>
+    <p>Already have an account? <a href="#" onclick="showLogin()">Login</a></p>
+  </div>
+</div>
+
+<!-- App content -->
+<div id="app" style="display:none;">
+  <header>
+    <h1>🛒 WanderSlapp Market</h1>
+    <div class="header-actions">
+      <button onclick="openForm()">Upload</button>
+      <button onclick="logout()">Logout</button>
+    </div>
+  </header>
+
+  <div class="container">
+    <input type="text" id="searchInput" placeholder="Search products..."/>
+    <h2>Available Products</h2>
+    <div class="product-grid" id="productGrid"></div>
+  </div>
+
+  <!-- Upload Form Modal -->
+  <div class="form-popup" id="uploadPopup">
+    <div class="form-box">
+      <button class="close-btn" onclick="closeForm()">✖️ Close</button>
+      <h3>Submit Your Product</h3>
+      <label for="images">📷 put product images:</label>
+      <input type="file" id="images" accept="image/*" multiple/>
+      <pre id="fileNames"></pre>
+      <input type="text" id="name" placeholder="Product Name"/>
+      <select id="condition">
+        <option value="">Select Condition</option>
+        <option value="new">New</option>
+        <option value="used">Used</option>
+        <option value="new">Used but looks new</option>
+        <option value="used">Damaged</option>
+      </select>
+      <textarea id="description" placeholder="Description..."></textarea>
+      <input type="text" id="whatsapp" placeholder="WhatsApp"/>
+      <input type="email" id="email" placeholder="Email"/>
+      <input type="text" id="phone" placeholder="Phone"/>
+      <input type="text" id="wandernumber" placeholder="S&R Number"/>
+      <input type="text" id="location" placeholder="Location"/>
+      <input type="text" id="price" placeholder="Price"/>
+      <button onclick="submitProduct()">Upload</button>
+    </div>
+  </div>
+
+  <!-- Product Details Modal -->
+  <div class="details-popup" id="detailsPopup">
+    <div class="details-box" id="detailsBox"></div>
+  </div>
+</div>
+
+<!-- Firebase SDKs -->
+<script src="https://www.gstatic.com/firebasejs/10.5.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.5.0/firebase-database-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.5.0/firebase-auth-compat.js"></script>
+
+<script src="script.js"></script>
+</body>
+</html>
