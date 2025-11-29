@@ -16,6 +16,19 @@ body {
   background: var(--bg);
 }
 
+/* copyright */
+   #copyright-message {
+  font-size: 0.80em;            /* 🔧 Uchepetsa size ya mawu */
+  font-weight: 400;             /* 🔧 Mawu asakhale a bold (400 = normal) */
+  font-style: italic;           /* 🔧 Mawu apange style ya italic (kapenanso onjezere ngati mukufuna) */
+  color: #666;                  /* 🔧 Mtundu wa mawu — osakhala wakuda kwambiri */
+  text-align: center;
+  margin-top: 60px;
+  padding: 10px 14px;
+  background-color: #f3f3f3;   
+  font-family: "Segoe UI", sans-serif;  /* 🔧 Font yokongola ya UI */
+ }
+
 /* Header */
 header {
   display: flex;
